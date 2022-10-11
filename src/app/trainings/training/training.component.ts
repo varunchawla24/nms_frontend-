@@ -4,6 +4,7 @@ import { Sort } from '@angular/material/sort';
 import { Router } from '@angular/router';
 import { TrainingService } from '../../services/training.service';
 import { TrainingDataSource } from './helper.data';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-training',
@@ -44,11 +45,20 @@ export class TrainingComponent implements OnInit {
       .subscribe(
         data => {
           console.log('data save train', data)
+          swal.fire(
+            data.message
+          )
         },
         error => {
           console.log('errrr', this.error["error"])
           this.error = error;
           this.loading = false;
+          swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!'
+          })
+          
         });
 
   }

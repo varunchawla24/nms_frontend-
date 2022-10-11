@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { first } from 'rxjs-compat/operator/first';
+import swal from 'sweetalert2';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -100,6 +101,11 @@ export class LoginComponent implements OnInit {
           console.log('errrr', this.error["error"])
           this.error = error;
           this.loading = false;
+          swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: error.error.message
+          })
         });
   }
   // this.router.navigate(['/']);

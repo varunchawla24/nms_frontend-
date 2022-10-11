@@ -8,6 +8,7 @@ import { DashboardWidgetModule } from '../dashboard-widget/dashboard-widget.modu
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ErrorInterceptor, JwtInterceptor } from '../helpers';
 import { UserService } from '../services/user.service';
+import { MatCarouselModule } from '@ngbmodule/material-carousel';
 
 export const appRoutes: Routes = [
     { path: '', component: DashboardCrmComponent },
@@ -20,7 +21,8 @@ export const appRoutes: Routes = [
     FlexLayoutModule,
     MatCardModule,
     DashboardWidgetModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCarouselModule
   ],
   declarations: [DashboardCrmComponent],
   exports: [ ],

@@ -38,7 +38,10 @@ export class UserMenuComponent implements OnInit {
 		console.log('hit')
       this.userService.logout();
 	  this.router.navigate(["/login"])
-   
+	  localStorage.clear();   
+	}
+	profile() {
+		this.router.navigate(["/auth/profile"])
 	}
 
 }

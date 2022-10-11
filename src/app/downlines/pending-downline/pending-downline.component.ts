@@ -3,7 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 import { UserService } from '../../services';
 import { PendingDownlineDataSource } from './helper.data';
-
+import swal from 'sweetalert2';
 @Component({
   selector: 'app-pending-downline',
   templateUrl: './pending-downline.component.html',
@@ -31,11 +31,17 @@ export class PendingDownlineComponent implements OnInit {
     data => {
      console.log(data)
      this.dataSource.loadPendingDownlines();
+     swal.fire(data.message)
     },
     error => {
       console.log('errrr', this.error["error"])
       this.error = error;
       this.loading = false;
+      swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!'
+      })
     });
   }
 

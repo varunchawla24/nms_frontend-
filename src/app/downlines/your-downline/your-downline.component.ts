@@ -5,14 +5,14 @@ import { Router } from '@angular/router';
 import { UserService } from '../../services';
 import { YoursDownlineDataSource } from './helper.data';
 import { ngxCsv } from 'ngx-csv/ngx-csv';
-
+import swal from 'sweetalert2';
 @Component({
   selector: 'app-your-downline',
   templateUrl: './your-downline.component.html',
   styleUrls: ['./your-downline.component.scss']
 })
 export class YourDownlineComponent implements OnInit {
-  displayedColumns = ["Name", "Email", "Upline Name", "Distributor Id", "Self PV", "Frontline Count", "Training Count", "Download Report"];
+  displayedColumns = ["Name", "Email", "Upline Name", "Distributor Id", "Self PV", "Frontline Count", "Training Count","List Count", "Download Report", "Block User"];
   error = ''
   loading = false;
   totalRows = 0;
@@ -53,6 +53,7 @@ export class YourDownlineComponent implements OnInit {
           this.length = this.downlineData.length
           this.dataSource = new MatTableDataSource<any>(this.downlineData);
           console.log('lennngh',this.length)
+          swal.fire(data.message);
 
           setTimeout(() => {
             this.paginator.pageIndex = this.currentPage;
@@ -74,6 +75,11 @@ export class YourDownlineComponent implements OnInit {
           console.log('errrr', this.error["error"])
           this.error = error;
           this.loading = false;
+          swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!'
+          })
         });
 
   }
@@ -215,5 +221,28 @@ export class YourDownlineComponent implements OnInit {
       this.loadDownlines(data);
 
   }
+
+  blockUser(data) {
+    console.log('data',data)
+this.userService.BlockUser(data)
+.pipe()
+.subscribe(
+    data => {
+        console.log('data',data)
+        this.ngOnInit();
+        swal.fire(data.message)
+    },
+    error => {
+      console.log('errrr',this.error["error"])
+        this.error = error;
+        this.loading = false;
+        swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!'
+        })
+    });
+   }
+
 
 }

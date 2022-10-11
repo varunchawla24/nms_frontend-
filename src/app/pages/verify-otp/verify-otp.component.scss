@@ -25,7 +25,16 @@ $prefix: 'sigin';
 .help {
 
 }
-
+.container {
+  position: relative;
+  text-align: center;
+}
+.centered {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 .is-danger {
 
 }
@@ -34,9 +43,4 @@ $prefix: 'sigin';
   font-size: 14px;
   margin-left: 10px;
   color: #00AAAA;
-}
-
-
-.otp-input {
-  margin-top: 50px;
 }

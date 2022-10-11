@@ -6,7 +6,11 @@ import { NgOtpInputModule } from 'ng-otp-input';
 import { MatCard, MatCardModule } from '@angular/material/card';
 import { NgxOtpInputModule } from 'ngx-otp-input';
 import { UserService } from '../../services/user.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatInputModule } from '@angular/material/input';
+import { ErrorInterceptor, JwtInterceptor } from '../../helpers';
 
 const appRoutes: Routes = [
     { path: '', component: VerifyOtpComponent },
@@ -19,12 +23,14 @@ const appRoutes: Routes = [
     NgOtpInputModule,
     NgxOtpInputModule,
     HttpClientModule,
-    MatCardModule
+    MatCardModule,
+    MatInputModule,
+    MatToolbarModule,
+    FormsModule,
+    ReactiveFormsModule
     
   ],
   declarations: [VerifyOtpComponent],
-  providers: [
-    UserService
-]
+  providers: [UserService]
 })
 export class VerifyOtpModule { }

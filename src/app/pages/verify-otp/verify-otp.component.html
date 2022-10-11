@@ -1,28 +1,11 @@
-<div fxLayout="column" fxFlexFill fxLayoutAlign="center center" style="background-image:url('../../../assets/login11.jpg');
-height: 100%;
-background-repeat: no-repeat;
-background-position: center;
-background-size: cover; ">
-    <div fxLayout="column" >
-   
-        <div class=" mat-elevation-z4">
-            <mat-card>
-                <!-- <mat-card-title>User login
-                    <a class="redirect" [routerLink]="['/sigup']">Register an account</a>
-                </mat-card-title> -->
-                <mat-card-content>
-<form fxLayout="column" fxLayoutAlign="start stretch">
-           
-<div class="otp-input">
-    <ngx-otp-input [config]="otpInputConfig" (otpChange)="handeOtpChange($event)" (fill)="handleFillEvent($event)" >
-</ngx-otp-input>
-
-<button mat-raised-button color="primary" type="button" [disabled]="!filled" (click)="verifyOtp()">verify</button>
+<div class="container">
+    <img src="../../../assets/login11.jpg" alt="Snow" style="width:100%;">
+    <div class="centered">    
+        <form fxLayout="column" fxLayoutAlign="start stretch"  (ngSubmit)="verifyOtp()">
+        <ngx-otp-input [config]="otpInputConfig" (otpChange)="handeOtpChange($event)" (fill)="handleFillEvent($event)" >
+    </ngx-otp-input>
+    <button mat-raised-button color="primary" type="button" [disabled]="!filled" (click)="verifyOtp()">verify</button>
 <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error.error.message}}</div>
-</div>
 </form>
-</mat-card-content>
-</mat-card>
 </div>
-</div>
-</div>
+  </div>

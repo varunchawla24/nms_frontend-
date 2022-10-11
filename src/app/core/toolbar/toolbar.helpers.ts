@@ -21,6 +21,6 @@ export const ToolbarHelpers = {
 	],
 	currentUser: {
 		photoURL: '',
-		currentUserName: JSON.parse(localStorage.getItem('profile')) ? 'Welcome '+ JSON.parse(localStorage.getItem('profile')).full_name : ''
+		currentUserName: 'Welcome ' + JSON.parse(localStorage.getItem('profile')).full_name
 	}
 };

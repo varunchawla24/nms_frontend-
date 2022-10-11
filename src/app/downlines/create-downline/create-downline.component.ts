@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../../services';
-
+import swal from 'sweetalert2';
 @Component({
   selector: 'app-create-downline',
   templateUrl: './create-downline.component.html',
@@ -96,14 +96,18 @@ export class CreateDownlineComponent implements OnInit {
 .pipe()
 .subscribe(
     data => {
-       alert(data)
+     swal.fire(data.message)
        this.onClear();
     },
     error => {
       console.log("error",error)
       console.log('errrr',this.error["error"])
         this.loading = false;
-        alert(this.error)
+        swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!'
+        })
     });
   }
   onClear(){

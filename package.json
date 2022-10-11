@@ -11,7 +11,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ngcc"
+    "postinstall": "ngcc",
+    "heroku-postbuild": "ng build"
   },
   "private": true,
   "dependencies": {
@@ -29,6 +30,7 @@
     "@angular/platform-browser": "^13.0.0-next.3",
     "@angular/platform-browser-dynamic": "^13.0.0-next.3",
     "@angular/router": "^13.0.0-next.3",
+    "@ngbmodule/material-carousel": "^0.7.2",
     "@swimlane/ngx-charts": "^16.0.0",
     "angular-svg-round-progressbar": "^5.0.2",
     "angular2-chartjs": "^0.5.1",
@@ -50,6 +52,7 @@
     "rxjs": "^6.6.3",
     "rxjs-compat": "^6.6.3",
     "screenfull": "^3.3.3",
+    "sweetalert2": "^11.4.29",
     "tslib": "^2.0.0",
     "vued3tree": "^3.7.1",
     "zone.js": "~0.11.4"

@@ -15,8 +15,8 @@ export const menus = [
         ]
     },
     {
-        'name': 'Trainings',
-        'icon': 'training',
+        'name': 'Activity',
+        'icon': 'Activity',
         'link': false,
         'open': false,
         'sub': [
@@ -24,6 +24,13 @@ export const menus = [
                 'name': 'Training',
                 'link': '/auth/trainings',
                 'icon': 'training',
+                'chip': false,
+                'open': true,
+            },
+            {
+                'name': 'Your Activity',
+                'link': '/auth/activity',
+                'icon': 'Activity',
                 'chip': false,
                 'open': true,
             }

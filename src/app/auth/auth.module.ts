@@ -27,6 +27,8 @@ import { CoreModule } from '../core/core.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ErrorInterceptor, JwtInterceptor } from '../helpers';
 import { UserService } from '../services/user.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProfileModule } from '../profile/profile.module';
 
 
 @NgModule({
@@ -41,7 +43,10 @@ import { UserService } from '../services/user.service';
         CoreModule,
         MatSidenavModule,
         // PerfectScrollbarModule,
-        NgScrollbarModule
+        NgScrollbarModule,
+        ReactiveFormsModule,
+        FormsModule,
+        ProfileModule
     ],
     declarations: [AuthComponent],
     providers: [

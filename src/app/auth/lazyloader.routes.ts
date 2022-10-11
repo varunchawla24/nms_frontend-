@@ -2,11 +2,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './auth.component';
 import { DashboardCrmComponent } from '../dashboard-crm/dashboard-crm.component';
 import { AuthGuard } from '../helpers';
+import { ProfileComponent } from '../profile/profile.component';
 
 export const appRoutes: Routes = [{
     path: '', component: AuthComponent, canActivate: [AuthGuard], children: [
         { path: 'dashboard', component: DashboardCrmComponent },
+        {path: 'profile',component: ProfileComponent},
         { path: 'trainings', loadChildren: () => import('../trainings/training.module').then(m => m.TrainingModule) },
+        { path: 'activity', loadChildren: () => import('../your-activity/activity.module').then(m => m.ActivityModule) },
         { path: 'downlines', loadChildren: () => import('../downlines/downline.module').then(m => m.DownlineModule) },
         { path: 'material-widgets', loadChildren: () => import('../material-widgets/material-widgets.module').then(m => m.MaterialWidgetsModule) },
         { path: 'tables', loadChildren: () => import('../tables/tables.module').then(m => m.TablesModule) },

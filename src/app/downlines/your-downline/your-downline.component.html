@@ -17,30 +17,30 @@
 				<!-- full name Column -->
 				<ng-container matColumnDef="Name">
 					<mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
-					<mat-cell *matCellDef="let row"> {{row.full_name}} </mat-cell>
+					<mat-cell *matCellDef="let row" flex="50"> {{row.full_name}} </mat-cell>
 				</ng-container>
 				<!-- email  Column -->
 				<ng-container matColumnDef="Email">
 					<mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
-					<mat-cell *matCellDef="let row"> {{row.email}} </mat-cell>
+					<mat-cell *matCellDef="let row" flex="50"> {{row.email}} </mat-cell>
 				</ng-container>
  
 						<!-- distributor id  Column -->
 						<ng-container matColumnDef="Distributor Id">
 							<mat-header-cell *matHeaderCellDef mat-sort-header> Distributor Id </mat-header-cell>
-							<mat-cell *matCellDef="let row"> {{row.distributor_id}} </mat-cell>
+							<mat-cell *matCellDef="let row" flex="50"> {{row.distributor_id}} </mat-cell>
 						</ng-container>
 
                         	<!-- Upline name  Column -->
 						<ng-container matColumnDef="Upline Name">
 							<mat-header-cell *matHeaderCellDef mat-sort-header> Upline Name</mat-header-cell>
-							<mat-cell *matCellDef="let row"> {{row.upline_name}} </mat-cell>
+							<mat-cell *matCellDef="let row" flex="50" > {{row.upline_name}} </mat-cell>
 						</ng-container>
 
                         <!-- Self PV   Column -->
 						<ng-container matColumnDef="Self PV">
 							<mat-header-cell *matHeaderCellDef mat-sort-header> Self PV</mat-header-cell>
-							<mat-cell *matCellDef="let row"> {{row.self_pv}} </mat-cell>
+							<mat-cell *matCellDef="let row" flex="50"> {{row.self_pv}} </mat-cell>
 						</ng-container>
                         <!-- Frontline Count  Column -->
 						<ng-container matColumnDef="Frontline Count">
@@ -52,10 +52,18 @@
 							<mat-header-cell *matHeaderCellDef mat-sort-header> Training Count</mat-header-cell>
 							<mat-cell *matCellDef="let row"> {{row.training_count}} </mat-cell>
 						</ng-container>
-
+						<ng-container matColumnDef="List Count">
+							<mat-header-cell *matHeaderCellDef mat-sort-header> List Count</mat-header-cell>
+							<mat-cell *matCellDef="let row"> {{row.list_number}} </mat-cell>
+						</ng-container>
                         <ng-container matColumnDef="Download Report">
 							<mat-header-cell *matHeaderCellDef mat-sort-header> Download Report</mat-header-cell>
 							<mat-cell *matCellDef="let row"> <button (click)="downloadCSV(row)">Download Report</button> </mat-cell>
+						</ng-container>
+
+                        <ng-container matColumnDef="Block User">
+							<mat-header-cell *matHeaderCellDef mat-sort-header> Block User</mat-header-cell>
+							<mat-cell *matCellDef="let row"> <button (click)="blockUser(row)">Block User</button> </mat-cell>
 						</ng-container>
                 <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row> 
    
